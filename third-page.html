@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Need for Salvation - Step In Faith</title>
+
+  <style>
+    /* --- SHARED STYLES --- */
+    :root {
+      --primary: #1e3c72;
+      --secondary: #2a5298;
+      --gold: #f2c94c;
+      --text: #333;
+      --light-bg: #f4f7f6;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      /* Pushes Logo Left, Hamburger Right */
+      align-items: center;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+      /* Allows the links to sit nicely on mobile */
+    }
+
+    .logo-img {
+      height: 90px;
+      /* BIGGER = visible */
+      width: auto;
+      max-width: 220px;
+      /* prevents overflow */
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+    }
+
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--gold);
+      padding: 5px 12px;
+      border-radius: 5px;
+      /* Ensures Hamburger stays Right */
+      order: 2;
+    }
+
+    .hamburger:hover {
+      background: var(--gold);
+      color: var(--primary);
+    }
+
+    /* Nav Links Styling */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      /* Order 3 puts links in the middle or below on mobile */
+      order: 3;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Side Menu (Slide-out) */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .side-menu a {
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #f1f1f1;
+      display: block;
+      border-bottom: 1px solid #333;
+      transition: 0.3s;
+    }
+
+    .side-menu a:hover {
+      color: var(--gold);
+      background: #222;
+    }
+
+    .side-menu .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+      border: none;
+      background: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .menu-title {
+      color: var(--gold);
+      padding: 0 30px 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    /* Content Container */
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      flex-grow: 1;
+      overflow: hidden;
+    }
+
+    /* Feature Image */
+    .feature-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 30px;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.15rem;
+      color: #444;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, rgba(242, 201, 76, 0.2) 0%, rgba(242, 201, 76, 0) 100%);
+      padding: 0 5px;
+      color: var(--primary);
+      font-weight: bold;
+      border-left: 3px solid var(--gold);
+    }
+
+    /* Nav Buttons */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 15px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+      flex: 1;
+      font-size: 1rem;
+    }
+
+    .btn-prev {
+      background: #e0e0e0;
+      color: #333;
+    }
+
+    .btn-prev:hover {
+      background: #d0d0d0;
+    }
+
+    .btn-next {
+      background: var(--gold);
+      color: var(--primary);
+    }
+
+    .btn-next:hover {
+      background: #ffb300;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .logo-img {
+        height: 65px;
+        max-width: 180px;
+      }
+
+      /* Keep Navbar Flexbox, but wrap the links to the next line */
+      .navbar {
+        justify-content: space-between;
+        /* Ensure Logo Left, Hamburger Right */
+      }
+
+
+      /* Force Links to break to a new line inside the blue bar */
+      .nav-links {
+        width: 100%;
+        /* Take full width */
+        justify-content: center;
+        /* Center them */
+        margin-top: 10px;
+        /* Add spacing below logo */
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        /* Optional: nice divider */
+        padding-top: 10px;
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+        /* Make text smaller to fit */
+      }
+
+      .container {
+        width: 90%;
+        margin: 20px auto;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+      }
+
+      .feature-image {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Side Menu (Hidden by default, contains Chapters) -->
+  <div id="mySidenav" class="side-menu">
+    <button class="closebtn" onclick="closeNav()">&times;</button>
+    <div class="menu-title">The Journey</div>
+    <a href="second-page.html">1. 🎥 The Truth</a>
+    <a href="third-page.html" style="color:var(--gold);">2. The Need for Salvation</a>
+    <a href="fourth-page.html">3. Salvation is Free</a>
+    <a href="fifth-page.html">4. God's Forgiveness</a>
+    <a href="sixth-page.html">5. Meaning of Repentance</a>
+    <a href="seventh-page.html">6. Ready to Receive</a>
+    <a href="eighth-page.html">7. 🎥 Final Word</a>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <!-- Logo (Left) -->
+    <a href="index.html">
+      <img src="stepinfaith.png" alt="Logo" class="logo-img"
+        onerror="this.style.display='none'; this.parentElement.innerHTML='<b>STEP IN FAITH</b>'">
+    </a>
+
+    <!-- Hamburger (Right) -->
+    <div class="hamburger" onclick="openNav()">
+      <span>&#9776;</span>
+      <span style="font-size:0.8rem; font-weight:bold;">MENU</span>
+    </div>
+
+    <!-- Navigation Links (Center / Below on Mobile) -->
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about_us.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="support.html">Support</a>
+      <a href="search.html">Search</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- 📸 IMAGE -->
+    <img src="images/salvation.jpg" alt="Need for Salvation" class="feature-image"
+      onerror="this.src='https://via.placeholder.com/800x400?text=The+Need+For+Salvation'">
+
+    <div class="card-content">
+      <div style="text-align:center;">
+        <h1>The Need for Salvation</h1>
+      </div>
+
+      <p>
+        Humanity has always sought answers to life’s deepest questions: Why are we here? What happens after we
+        die? Why
+        is there suffering and sin? The Bible teaches that all people have sinned and fallen short of God's
+        glory (<span class="highlight">Romans 3:23</span>), and that sin separates us from a holy God.
+      </p>
+
+      <p>
+        Salvation is necessary because of this separation. Without it, humanity is lost—spiritually dead and
+        without
+        eternal hope. But the good news, or the <span class="highlight">Gospel</span>, is that Jesus Christ came
+        to
+        bridge that gap by offering Himself as the perfect sacrifice.
+      </p>
+
+      <p>
+        Through Him, we are given not only forgiveness of sins, but a restored relationship with God and the
+        promise of
+        eternal life (<span class="highlight">John 3:16</span>). This is not earned by works, but received
+        through
+        faith.
+      </p>
+
+      <div class="nav-buttons">
+        <a href="second-page.html" class="btn btn-prev">&larr; Previous: What is Salvation?</a>
+        <a href="fourth-page.html" class="btn btn-next">Next: Salvation is Free &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Step In Faith | #Salvation #JesusChrist #EternalLife
+  </footer>
+
+  <script>
+    function openNav() { document.getElementById("mySidenav").style.width = "280px"; }
+    function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+
+    window.onclick = function (event) {
+      if (event.target == document.getElementById("mySidenav")) {
+        closeNav();
+      }
+    }
+  </script>
+
+</body>
+
+</html>

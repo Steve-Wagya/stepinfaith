@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is Salvation? - Step In Faith</title>
+
+  <!-- Social Media Meta Tags -->
+  <meta property="og:title" content="What is Salvation? | Step In Faith" />
+  <meta property="og:description" content="How should we escape if we neglect so great a salvation?" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-358NXC7NH4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-358NXC7NH4');
+  </script>
+
+  <style>
+    /* --- SHARED STYLES --- */
+    :root {
+      --primary: #1e3c72;
+      --secondary: #2a5298;
+      --gold: #f2c94c;
+      --text: #333;
+      --light-bg: #f4f7f6;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo-img {
+      height: 90px;
+      /* BIGGER = visible */
+      width: auto;
+      max-width: 220px;
+      /* prevents overflow */
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+    }
+
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--gold);
+      padding: 5px 12px;
+      border-radius: 5px;
+      order: 2;
+    }
+
+    .hamburger:hover {
+      background: var(--gold);
+      color: var(--primary);
+    }
+
+    /* Nav Links Styling */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      order: 3;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Side Menu */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .side-menu a {
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #f1f1f1;
+      display: block;
+      border-bottom: 1px solid #333;
+      transition: 0.3s;
+    }
+
+    .side-menu a:hover {
+      color: var(--gold);
+      background: #222;
+    }
+
+    .side-menu .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+      border: none;
+      background: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .menu-title {
+      color: var(--gold);
+      padding: 0 30px 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    /* Content Container */
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      flex-grow: 1;
+      overflow: hidden;
+    }
+
+    /* Video Container */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 177.77%;
+      /* 9:16 Aspect Ratio for Vertical Video */
+      height: 0;
+      background: #000;
+      margin: 0 auto;
+      /* Center it */
+      width: 100%;
+      max-width: 450px;
+      /* Limit width so vertical video isn't huge on desktop */
+    }
+
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .card-content {
+      padding: 30px;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--secondary);
+      font-size: 1.5rem;
+      margin-top: 30px;
+      border-left: 4px solid var(--gold);
+      padding-left: 10px;
+    }
+
+    p {
+      font-size: 1.15rem;
+      color: #444;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    /* Scripture Highlight */
+    .scripture-box {
+      background: #f0f8ff;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 25px 0;
+      border-left: 5px solid var(--secondary);
+      font-style: italic;
+      font-weight: 500;
+      color: #333;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, rgba(242, 201, 76, 0.2) 0%, rgba(242, 201, 76, 0) 100%);
+      padding: 0 5px;
+      font-weight: bold;
+    }
+
+    /* Nav Buttons */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 15px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+      flex: 1;
+      font-size: 1rem;
+    }
+
+    .btn-prev {
+      background: #e0e0e0;
+      color: #333;
+    }
+
+    .btn-prev:hover {
+      background: #d0d0d0;
+    }
+
+    .btn-next {
+      background: var(--gold);
+      color: var(--primary);
+    }
+
+    .btn-next:hover {
+      background: #ffb300;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* --- MOBILE RESPONSIVE LOGIC --- */
+    @media (max-width: 768px) {
+      .logo-img {
+        height: 65px;
+        max-width: 180px;
+      }
+
+      .navbar {
+        justify-content: space-between;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 10px;
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        width: 90%;
+        margin: 20px auto;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+      }
+
+      .video-wrapper {
+        max-width: 100%;
+        /* Full width on mobile */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Side Menu -->
+  <div id="mySidenav" class="side-menu">
+    <button class="closebtn" onclick="closeNav()">&times;</button>
+    <div class="menu-title">The Journey</div>
+    <a href="second-page.html" style="color:var(--gold);">1. 🎥 The Truth</a>
+    <a href="third-page.html">2. The Need for Salvation</a>
+    <a href="fourth-page.html">3. Salvation is Free</a>
+    <a href="fifth-page.html">4. God's Forgiveness</a>
+    <a href="sixth-page.html">5. Meaning of Repentance</a>
+    <a href="seventh-page.html">6. Ready to Receive</a>
+    <a href="eighth-page.html">7. 🎥 Final Word</a>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <!-- Logo (Left) -->
+    <a href="index.html">
+      <img src="stepinfaith.png" alt="Logo" class="logo-img"
+        onerror="this.style.display='none'; this.parentElement.innerHTML='<b>STEP IN FAITH</b>'">
+    </a>
+
+    <!-- Hamburger (Right) -->
+    <div class="hamburger" onclick="openNav()">
+      <span>&#9776;</span>
+      <span style="font-size:0.8rem; font-weight:bold;">MENU</span>
+    </div>
+
+    <!-- Navigation Links (Center / Below on Mobile) -->
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about_us.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="support.html">Support</a>
+      <a href="search.html">Search</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- 🎥 VIDEO PLAYER -->
+    <div class="video-wrapper">
+      <video controls controlsList="nodownload" playsinline>
+        <!-- Keep video1.mp4 -->
+        <source src=" https://www.youtube.com/embed/NkWYL-V8exo" type="salvation video">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+
+    <div class="card-content">
+      <div style="text-align:center;">
+        <h1>What is Salvation?</h1>
+      </div>
+
+      <p>The Bible asks a crucial question:</p>
+
+      <div class="scripture-box">
+        "How should we escape if we neglect so great a salvation?"
+      </div>
+
+      <h2>The Message</h2>
+
+      <p>
+        <strong>What is the salvation?</strong><br>
+        The salvation is Jesus Christ coming on the cross, dying for our sins, shedding His blood, and being made to be
+        sin for us—He who knew no sin—that we might be made the righteousness of God in Him.
+      </p>
+
+      <p>
+        The Bible says, <span class="highlight">"All we like sheep have gone astray; we have turned everyone to his own
+          way."</span>
+      </p>
+
+      <p>
+        We are all sinners. Adam and Eve sinned in the Garden of Eden. Cain and Abel, their sons, sinned. They passed
+        that disease of sin down to you and me. We all have the disease in our hearts. We are all under condemnation. We
+        are all going to die.
+      </p>
+
+      <p>
+        War does not increase death; death is total in every generation. The question is: <strong>What direction are you
+          taking?</strong>
+      </p>
+
+      <div class="nav-buttons">
+        <a href="index.html" class="btn btn-prev">&larr; Back Home</a>
+        <a href="third-page.html" class="btn btn-next">Next: The Need for Salvation &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Step In Faith | #Faith #Hope #Salvation
+  </footer>
+
+  <script>
+    function openNav() { document.getElementById("mySidenav").style.width = "280px"; }
+    function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+
+    window.onclick = function (event) {
+      if (event.target == document.getElementById("mySidenav")) {
+        closeNav();
+      }
+    }
+  </script>
+
+</body>
+
+</html>

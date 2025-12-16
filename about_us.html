@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Spread the Gospel</title>
+
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="About Us | Spread the Gospel" />
+    <meta property="og:description" content="We are dedicated to spreading the Gospel of Jesus Christ." />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-358NXC7NH4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-358NXC7NH4');
+    </script>
+
+    <style>
+        /* --- SHARED STYLES --- */
+        :root {
+            --primary: #1e3c72;
+            --secondary: #2a5298;
+            --gold: #f2c94c;
+            --text: #333;
+            --light-bg: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.8;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            /* Pushes outer items to edges */
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            height: 90px;
+            /* BIGGER = visible */
+            width: auto;
+            max-width: 220px;
+            /* prevents overflow */
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+        }
+
+
+        /* Nav Links - CENTERED */
+        .nav-links {
+            flex: 1 1 auto;
+            /* Grow to fill space */
+            display: flex;
+            justify-content: center;
+            /* Center items horizontally */
+            gap: 20px;
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hamburger - RIGHT CORNER */
+        .hamburger {
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--gold);
+            padding: 5px 12px;
+            border-radius: 5px;
+            flex: 0 0 auto;
+            /* Do not grow or shrink */
+        }
+
+        .hamburger:hover {
+            background: var(--gold);
+            color: var(--primary);
+        }
+
+        /* Side Menu */
+        .side-menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .side-menu a {
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #f1f1f1;
+            display: block;
+            border-bottom: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .side-menu a:hover {
+            color: var(--gold);
+            background: #222;
+        }
+
+        .side-menu .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            border: none;
+            background: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu-title {
+            color: var(--gold);
+            padding: 0 30px 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Content Container */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        /* Feature Image */
+        .feature-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--gold);
+            padding-left: 10px;
+        }
+
+        p {
+            font-size: 1.15rem;
+            color: #444;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        ul li::before {
+            content: "✓";
+            color: var(--gold);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .highlight {
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary);
+            font-weight: bold;
+            color: var(--primary);
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .scripture {
+            font-style: italic;
+            color: #555;
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* Nav Buttons */
+        .btn-home {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-home:hover {
+            background: var(--secondary);
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 65px;
+                max-width: 180px;
+            }
+
+            .navbar {
+                justify-content: space-between;
+                padding-bottom: 15px;
+            }
+
+
+            /* On mobile, break links to new line but center them */
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                order: 3;
+                /* Move to bottom of navbar flex */
+                margin-top: 10px;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                padding-top: 10px;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .container {
+                width: 90%;
+                margin: 20px auto;
+            }
+
+            .feature-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Side Menu -->
+    <div id="mySidenav" class="side-menu">
+        <button class="closebtn" onclick="closeNav()">&times;</button>
+        <div class="menu-title">The Journey</div>
+        <a href="second-page.html">1. 🎥 The Truth</a>
+        <a href="third-page.html">2. The Need for Salvation</a>
+        <a href="fourth-page.html">3. Salvation is Free</a>
+        <a href="fifth-page.html">4. God's Forgiveness</a>
+        <a href="sixth-page.html">5. Meaning of Repentance</a>
+        <a href="seventh-page.html">6. Ready to Receive</a>
+        <a href="eighth-page.html">7. 🎥 Final Word</a>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <!-- 1. Logo (Left) -->
+        <a href="index.html">
+            <!-- Ensure this path matches your image location -->
+            <img src="stepinfaith.png" alt="Logo" class="logo-img"
+                onerror="this.style.display='none'; this.parentElement.innerHTML='<b>STEP IN FAITH</b>'">
+        </a>
+
+        <!-- 2. Navigation Links (Middle) -->
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about_us.html" style="color:var(--gold);">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="support.html">Support</a>
+            <a href="search.html">Search</a>
+        </div>
+
+        <!-- 3. Hamburger (Right) -->
+        <div class="hamburger" onclick="openNav()">
+            <span>&#9776;</span>
+            <span style="font-size:0.8rem; font-weight:bold;">MENU</span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- 📸 IMAGE: Using the online link you provided -->
+        <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64" alt="Bible and Cross"
+            class="feature-image">
+
+        <div class="card-content">
+            <div style="text-align:center;">
+                <h1>About Us</h1>
+            </div>
+
+            <h2>Our Mission</h2>
+            <p>
+                We are dedicated to spreading the Gospel of Jesus Christ.
+                Our mission is to share God’s Word, love, and truth with people everywhere,
+                helping them discover peace, hope, and eternal life in Him.
+            </p>
+
+            <div class="highlight">
+                Our mission is to make the Gospel of Jesus Christ accessible to everyone, everywhere.
+            </div>
+
+            <span class="scripture">
+                "Go into all the world and preach the gospel to all creation." – Mark 16:15
+            </span>
+
+            <h2>What We Do</h2>
+            <p>
+                Through this website, we provide Biblical teachings, encouragement, and resources
+                to help people grow in faith and understand the message of salvation.
+            </p>
+
+            <ul>
+                <li>Share the message of salvation through online content</li>
+                <li>Provide Bible-based encouragement and teaching</li>
+                <li>Guide seekers to a personal relationship with Christ</li>
+                <li>Build a supportive faith community</li>
+            </ul>
+
+            <h2>Connect With Us</h2>
+            <p>
+                You can reach out to us anytime via our
+                <a href="https://www.facebook.com/552432681296922" target="_blank"
+                    style="color:var(--primary); font-weight:bold;">Facebook Page</a>.
+            </p>
+
+            <div style="text-align:center;">
+                <a href="index.html" class="btn-home">⬅ Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Gospel Mission. All rights reserved.
+    </footer>
+
+    <script>
+        function openNav() { document.getElementById("mySidenav").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+
+        window.onclick = function (event) {
+            if (event.target == document.getElementById("mySidenav")) {
+                closeNav();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

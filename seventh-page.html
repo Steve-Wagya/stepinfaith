@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ready to Receive - Step In Faith</title>
+
+  <!-- Social Media Meta Tags -->
+  <meta property="og:title" content="Ready to Receive Salvation | Step In Faith" />
+  <meta property="og:description" content="You are almost there. Prepare your heart to receive Jesus." />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-358NXC7NH4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-358NXC7NH4');
+  </script>
+
+  <style>
+    /* --- SHARED STYLES --- */
+    :root {
+      --primary: #1e3c72;
+      --secondary: #2a5298;
+      --gold: #f2c94c;
+      --text: #333;
+      --light-bg: #f4f7f6;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo-img {
+      height: 90px;
+      /* BIGGER = visible */
+      width: auto;
+      max-width: 220px;
+      /* prevents overflow */
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--gold);
+      padding: 5px 12px;
+      border-radius: 5px;
+      order: 2;
+    }
+
+    .hamburger:hover {
+      background: var(--gold);
+      color: var(--primary);
+    }
+
+    /* Nav Links Styling */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      order: 3;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Side Menu */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .side-menu a {
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #f1f1f1;
+      display: block;
+      border-bottom: 1px solid #333;
+      transition: 0.3s;
+    }
+
+    .side-menu a:hover {
+      color: var(--gold);
+      background: #222;
+    }
+
+    .side-menu .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+      border: none;
+      background: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .menu-title {
+      color: var(--gold);
+      padding: 0 30px 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    /* Content Container */
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      flex-grow: 1;
+      overflow: hidden;
+    }
+
+    /* Feature Image */
+    .feature-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 30px;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.15rem;
+      color: #444;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    /* Special CTA Button for this page */
+    .cta-container {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .cta-btn {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: white;
+      padding: 18px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-block;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 114, 255, 0.6);
+    }
+
+    .footer-note {
+      font-style: italic;
+      color: #666;
+      text-align: center;
+      margin-top: 20px;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+    }
+
+    /* Nav Buttons */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 15px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+      flex: 1;
+      font-size: 1rem;
+    }
+
+    .btn-prev {
+      background: #e0e0e0;
+      color: #333;
+    }
+
+    .btn-prev:hover {
+      background: #d0d0d0;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .logo-img {
+        height: 65px;
+        max-width: 180px;
+      }
+
+      .navbar {
+        justify-content: space-between;
+      }
+
+      /* Force Links to break to a new line inside the blue bar */
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 10px;
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+
+      .container {
+        width: 90%;
+        margin: 20px auto;
+      }
+
+      .feature-image {
+        height: 200px;
+      }
+
+      .cta-btn {
+        width: 100%;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Side Menu -->
+  <div id="mySidenav" class="side-menu">
+    <button class="closebtn" onclick="closeNav()">&times;</button>
+    <div class="menu-title">The Journey</div>
+    <a href="second-page.html">1. 🎥 The Truth</a>
+    <a href="third-page.html">2. The Need for Salvation</a>
+    <a href="fourth-page.html">3. Salvation is Free</a>
+    <a href="fifth-page.html">4. God's Forgiveness</a>
+    <a href="sixth-page.html">5. Meaning of Repentance</a>
+    <a href="seventh-page.html" style="color:var(--gold);">6. Ready to Receive</a>
+    <a href="eighth-page.html">7. 🎥 Final Word</a>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <!-- Logo (Left) -->
+    <a href="index.html">
+      <img src="stepinfaith.png" alt="Logo" class="logo-img"
+        onerror="this.style.display='none'; this.parentElement.innerHTML='<b>STEP IN FAITH</b>'">
+    </a>
+
+    <!-- Hamburger (Right) -->
+    <div class="hamburger" onclick="openNav()">
+      <span>&#9776;</span>
+      <span style="font-size:0.8rem; font-weight:bold;">MENU</span>
+    </div>
+
+    <!-- Navigation Links (Center / Below on Mobile) -->
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about_us.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="support.html">Support</a>
+      <a href="search.html">Search</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- 📸 IMAGE: Ensure you name your image 'ready.jpg' and put it in images folder -->
+    <img src="images/ready.jpg" alt="Ready to Receive" class="feature-image"
+      onerror="this.src='https://via.placeholder.com/800x400?text=Ready+To+Receive'">
+
+    <div class="card-content">
+      <div style="text-align:center;">
+        <h1>You’re Almost There</h1>
+      </div>
+
+      <p>
+        If you’ve gone through all the pages and allowed the truths of God's Word to touch your heart...
+      </p>
+
+      <p>
+        If you’ve truly reflected and realized your need for a Savior...
+      </p>
+
+      <p>
+        If you now carry a heart that is sincere, regretful, and truly repentant of your past life...
+      </p>
+
+      <p style="font-weight:bold; font-size:1.3rem; color:var(--primary); text-align:center; margin:30px 0;">
+        Then you’re ready.
+      </p>
+
+      <p>
+        You’ve taken the necessary steps to understand salvation, and I believe with confidence that God has been
+        speaking to your heart. Now, it’s time to take the most important step—<em>receiving Jesus Christ as your Lord
+          and Savior</em>.
+      </p>
+
+      <!-- Prominent Call to Action -->
+      <div class="cta-container">
+        <a href="eighth-page.html" class="cta-btn">Proceed to Receive Salvation &rarr;</a>
+      </div>
+
+      <div class="footer-note">
+        We’re praying for you. God is ready and waiting to welcome you with open arms.
+      </div>
+
+      <div class="nav-buttons">
+        <a href="sixth-page.html" class="btn btn-prev">&larr; Back: Repentance</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Step In Faith | #Salvation #JesusChrist #EternalLife
+  </footer>
+
+  <script>
+    function openNav() { document.getElementById("mySidenav").style.width = "280px"; }
+    function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+
+    window.onclick = function (event) {
+      if (event.target == document.getElementById("mySidenav")) {
+        closeNav();
+      }
+    }
+  </script>
+
+</body>
+
+</html>

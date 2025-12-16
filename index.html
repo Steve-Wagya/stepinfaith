@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome - Step In Faith</title>
+  <meta name="description" content="Begin your journey of faith, hope, and eternal salvation today.">
+
+  <!-- Social Media Tags -->
+  <meta property="og:title" content="Step In Faith - The Gospel Salvation">
+  <meta property="og:image"
+    content="https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?auto=format&fit=crop&w=1000&q=80">
+
+  <style>
+    /* --- GLOBAL STYLES --- */
+    :root {
+      --primary: #1e3c72;
+      --secondary: #2a5298;
+      --gold: #f2c94c;
+      --dark-gold: #b38b00;
+      --text: #333;
+      --light-bg: #f4f7f6;
+      --white: #ffffff;
+      --danger: #b71c1c;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* --- NAVIGATION --- */
+    .navbar {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: var(--white);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 90px;
+      /* BIGGER = visible */
+      width: auto;
+      max-width: 220px;
+      /* prevents overflow */
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+    }
+
+
+    .top-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .top-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .top-links a:hover {
+      color: var(--gold);
+    }
+
+    .hamburger-btn {
+      font-size: 18px;
+      cursor: pointer;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hamburger-btn:hover {
+      background: var(--gold);
+      color: var(--primary);
+    }
+
+    /* --- HAMBURGER MENU --- */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .side-menu a {
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #f1f1f1;
+      display: block;
+      transition: 0.3s;
+      border-bottom: 1px solid #333;
+    }
+
+    .side-menu a:hover {
+      color: var(--gold);
+      background: #222;
+    }
+
+    .side-menu .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .menu-title {
+      color: var(--gold);
+      padding: 0 30px 10px 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      background: linear-gradient(rgba(30, 60, 114, 0.75), rgba(42, 82, 152, 0.75)),
+        url('https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      min-height: 85vh;
+      /* Taller to fit buttons */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    /* Button Container */
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .hero-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 15px 20px;
+      font-size: 1.1rem;
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero-btn:hover {
+      background: var(--gold);
+      color: #222;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(242, 201, 76, 0.4);
+    }
+
+    .content {
+      display: none;
+      padding: 15px;
+      border-left: 3px solid #444;
+      margin-bottom: 20px;
+    }
+
+    /* --- URGENT QUESTION SECTION --- */
+    .urgent-section {
+      background-color: #fff;
+      margin: -60px auto 40px auto;
+      max-width: 800px;
+      width: 90%;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      border-top: 5px solid var(--danger);
+    }
+
+    .reader-text {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .question-text {
+      font-size: 1.6rem;
+      color: var(--danger);
+      font-weight: 800;
+      line-height: 1.4;
+      font-family: 'Georgia', serif;
+    }
+
+    /* --- INTRO SECTION --- */
+    .intro {
+      padding: 20px 20px 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .intro h2 {
+      color: var(--primary);
+    }
+
+    /* --- NEW "CHOOSE NOW" SECTION --- */
+    .decision-container {
+      background: #1e3c72;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .decision-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .decision-title {
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .decision-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .step-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .step-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .step-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .step-head {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .logo-img {
+        height: 65px;
+        max-width: 180px;
+      }
+
+      .top-links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .navbar {
+        padding: 10px 15px;
+      }
+
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .question-text {
+        font-size: 1.3rem;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Side Menu -->
+  <div id="mySidenav" class="side-menu">
+    <button class="closebtn" onclick="closeNav()">&times;</button>
+
+    <div class="menu-title">The Journey</div>
+    <a href="second-page.html">1. 🎥 The Truth (Video)</a>
+    <a href="third-page.html">2. The Need for Salvation</a>
+    <a href="fourth-page.html">3. Salvation is Free</a>
+    <a href="fifth-page.html">4. God's Forgiveness</a>
+    <a href="sixth-page.html">5. Meaning of Repentance</a>
+    <a href="seventh-page.html">6. Ready to Receive</a>
+    <a href="eighth-page.html">7. 🎥 Call to Decision (Video)</a>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <a href="index.html"><img src=" stepinfaith.png" alt="Step In Faith" class="logo-img"></a>
+    </div>
+
+    <div class="top-links">
+      <a href="index.html">Home</a>
+      <a href="about_us.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="support.html">Support</a>
+      <a href="search.html">Search</a>
+    </div>
+
+    <div class="hamburger-btn" onclick="openNav()">
+      <span>&#9776;</span>
+      <span style="font-weight:bold;">Start Journey</span>
+    </div>
+  </nav>
+
+  <!-- Hero Section with 3 Buttons -->
+  <div class="hero">
+    <h1>Discover Eternal Hope / Life</h1>
+    <p>You are not here by accident. God has a message of love, forgiveness, and new life just for you.
+      <br><strong>Are you seeking truth and purpose in life?</strong>
+      Do you yearn for a deeper connection with
+      God?
+      Jesus Christ is the way, the truth, and the life. Through Him, you can experience forgiveness,
+      redemption,
+      and
+      a personal relationship with the Creator.
+    </p>
+
+
+    <div class="button-group">
+      <button class="hero-btn" onclick="toggleContent('content1')">
+        The Urgency of Decision
+      </button>
+      <div id="content1" class="content">
+        <p><strong>The Urgency of Decision:</strong><br>
+          " Today, we're faced with a crucial decision that can determine our eternal destiny. The Bible
+          reminds
+          us
+          that <em>'now is the time of God's favor, now is the day of salvation'</em> (2 Corinthians 6:2). We
+          don't know
+          when
+          our time
+          on this earth will come to an end, but we do know that we should be prepared to meet our Lord at any
+          moment.
+        </p>
+        <p>
+          <strong>The Uncertainty of Life:</strong><br>
+          The Bible warns us that <em>'man proposes, but God disposes'</em> (Proverbs 19:21). Our lives
+          can
+          change
+          in
+          an
+          instant,
+          and we may not have tomorrow to make a decision. As the apostle Paul wrote, 'We are not to live
+          in
+          the
+          shadow
+          of tomorrow,
+          but in the light of today' (Hebrews 3:13, paraphrased). Why not make the decision to accept
+          Christ
+          now, so
+          that when our
+          time comes, we can rest assured that we are safe in His loving arms?
+        </p>
+        <p>
+          <strong>The Consequences of Rejection:</strong><br>
+          The Bible teaches us that <em>'the wages of sin is death, but the gift of God is eternal life in
+            Christ
+            Jesus
+            our Lord'</em>
+          (Romans 6:23). If we reject Christ, we risk facing eternal separation from God, which is
+          described
+          as
+          'burning
+          hellfire'
+          (Matthew 25:41, Revelation 20:15). This is a reality we should all take seriously.
+        </p>
+        <p>
+          <strong>The Benefits of Acceptance:</strong><br>
+          On the other hand, accepting Christ brings us into a loving relationship with God, where we can
+          experience
+          true fulfillment
+          and joy. As Jesus said, <em>'I have come that they may have life, and have it to the full'</em>
+          (John
+          10:10).
+          In Christ, we
+          find the peace, love, and purpose that we were created for. Brethren, note that; "there is not
+          fulfilment
+          in
+          the world but only in Christ."
+        </p>
+        <p>
+          <strong>God's Willingness to Accept Us:</strong><br>
+          The good news is that God is willing to accept us just as we are. He loves us with an
+          everlasting
+          love and
+          desires to forgive us
+          and restore us to a right relationship with Him (Jeremiah 31:3, 1 John 1:9). As the Bible says,
+          <em>'Whoever comes to me I will never drive away'</em> (John 6:37).
+        </p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7FUNyOZcNgA" title="Call to Decision"
+          allowfullscreen></iframe>
+      </div>
+
+      <button class="hero-btn" onclick="toggleContent('content2')">
+        Call to Decision
+      </button>
+      <div id="content2" class="content">
+        <p><strong>A Call to Decision:</strong><br>
+          So, why not make the decision to accept Christ now? Let's not wait any longer to experience the joy,
+          peace,
+          and fulfillment that comes
+          from knowing Him. As the Bible says, <em>'Today, if you hear his voice, do not harden your
+            hearts'</em>
+          (Hebrews 3:15).
+          Let's accept Christ now and secure our place in eternity.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Urgent Question -->
+  <br>
+  <div class="urgent-section">
+    <div class="reader-text">Dear Reader, I want you to ask yourself this question:</div>
+    <div class="question-text">
+      "If I die today, will I end up in Heaven or Hell? <br>
+      <span style="color:#222; font-size:1.3rem; display:block; margin-top:10px;">And if I miss Heaven, you
+        can
+        bet I won't miss Hell!"</span>
+    </div>
+  </div>
+
+  <!-- Introduction -->
+  <section class="intro">
+    <h2>Why are you here?</h2>
+    <p>
+      Life is full of questions. "Why am I here?" "Is there more to life than this?"
+      We believe the answer is found in a relationship with Jesus Christ.
+      We have prepared a short journey of videos and readings to explain the greatest gift you could ever
+      receive.
+    </p>
+    <br>
+    <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=800&q=80"
+      alt="Open Bible" style="width:100%; max-width:500px; border-radius:10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+  </section>
+
+  <div class="decision-container">
+    <div class="decision-content">
+      <div class="decision-title">The Time to Choose Is Now</div>
+      <div class="decision-subtitle">
+        Time itself makes the decision for you if you wait. The Bible tells us three things we must do to be
+        right
+        with
+        God:
+      </div>
+
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <span class="step-icon">🙏</span>
+          <div class="step-head">1. Repent</div>
+          <p>You must be willing to turn away from sin. This means changing your way of thinking about
+            your
+            actions and
+            realizing they separate you from a Holy God.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <span class="step-icon">❤️</span>
+          <div class="step-head">2. Believe</div>
+          <p>Change your thinking about God. Realize that He loves you and sent His Son, Jesus, to die for
+            you.
+            Trust in
+            His sacrifice alone.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <span class="step-icon">🙌</span>
+          <div class="step-head">3. Receive</div>
+          <p>It is not enough to just know it in your head. You must receive Him into your heart by faith
+            and
+            declare
+            Him as your Lord.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer style="background:#1e3c72; color:white; text-align:center; padding:20px; margin-top:40px;">
+    <p>&copy; 2025 Step In Faith | Spreading the Light</p>
+    <p style="font-size:0.9rem; color:#ccc;">#Faith #Hope #Love #Salvation</p>
+  </footer>
+
+  <script>
+    function toggleContent(id) {
+      const content = document.getElementById(id);
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+
+
+
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+</body>
+
+</html>
