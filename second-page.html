@@ -169,27 +169,27 @@
       overflow: hidden;
     }
 
-    /* Video Container */
     .video-wrapper {
       position: relative;
-      padding-bottom: 177.77%;
-      /* 9:16 Aspect Ratio for Vertical Video */
-      height: 0;
-      background: #000;
-      margin: 0 auto;
-      /* Center it */
       width: 100%;
-      max-width: 450px;
-      /* Limit width so vertical video isn't huge on desktop */
+      /* Full width of container */
+      max-width: 560px;
+      /* Limit width on desktop */
+      padding-top: 56.25%;
+      /* 16:9 aspect ratio for YouTube */
+      margin: 20px auto;
+      /* Center horizontally */
     }
 
-    .video-wrapper video {
+    .video-wrapper iframe {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      border-radius: 10px;
     }
+
 
     .card-content {
       padding: 30px;
@@ -287,6 +287,7 @@
       margin-top: 40px;
     }
 
+
     /* --- MOBILE RESPONSIVE LOGIC --- */
     @media (max-width: 768px) {
       .logo-img {
@@ -370,13 +371,11 @@
   <!-- Main Content -->
   <div class="container">
 
-    <!-- 🎥 VIDEO PLAYER -->
     <div class="video-wrapper">
-      <video controls controlsList="nodownload" playsinline>
-        <!-- Keep video1.mp4 -->
-        <source src=" https://www.youtube.com/embed/NkWYL-V8exo" type="salvation video">
-        Your browser does not support the video tag.
-      </video>
+      <iframe src="https://www.youtube.com/embed/NkWYL-V8exo" title="Call to Decision" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
 
 
