@@ -412,14 +412,35 @@
     <p><a href="https://www.facebook.com/552432681296922" target="_blank">Click here to follow our page and continue
         growing in your faith</a></p>
   </div>
-
   </div>
+  <!-- Video Modal -->
+  <div id="videoModal"
+    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:3000;">
+    <div style="position:relative; width:80%; max-width:800px;">
+      <button onclick="closeVideo()"
+        style="position:absolute; top:-40px; right:0; font-size:30px; color:white; background:none; border:none; cursor:pointer;">&times;</button>
+      <iframe id="videoFrame" width="100%" height="450" src="" frameborder="0" allowfullscreen></iframe>
+      <p id="videoCaption" style="color:white; margin-top:10px;"></p>
+    </div>
+  </div>
+
 
   <footer>
     &copy; 2025 Gospel Mission. All rights reserved.
   </footer>
 
   <script>
+    function openVideo(url, caption) {
+      document.getElementById('videoFrame').src = url;
+      document.getElementById('videoCaption').innerHTML = caption;
+      document.getElementById('videoModal').style.display = 'flex';
+    }
+
+    function closeVideo() {
+      document.getElementById('videoFrame').src = '';
+      document.getElementById('videoModal').style.display = 'none';
+    }
+
     function openNav() { document.getElementById("mySidenav").style.width = "280px"; }
     function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
   </script>
